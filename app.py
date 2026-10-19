@@ -33,7 +33,18 @@ st.set_page_config(
 # ============================================================
 # 2. CONFIGURATION
 # ============================================================
-DATA_PATH = Path("data/raw/netflix_titles.csv")
+BASE_DIR = Path(__file__).resolve().parent
+
+DATA_CANDIDATES = [
+    BASE_DIR / "data" / "raw" / "netflix_titles.csv",
+    BASE_DIR / "netflix_titles.csv",
+]
+
+DATA_PATH = next(
+    (path for path in DATA_CANDIDATES if path.is_file()),
+    DATA_CANDIDATES[0],
+)
+
 TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p/w500"
 
 try:
