@@ -4,5 +4,4 @@ __pycache__/
 *.py[cod]
 .env
 .streamlit/secrets.toml
-data/raw/netflix_titles.csv
 .DS_Store
